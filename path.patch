@@ -1,0 +1,12 @@
+diff -ur Smarty-3.0.5/libs/Smarty.class.php Smarty-3.0.5.new//libs/Smarty.class.php
+--- Smarty-3.0.5/libs/Smarty.class.php	2010-11-21 03:59:07.000000000 +0100
++++ Smarty-3.0.5.new//libs/Smarty.class.php	2010-12-12 19:05:26.021806440 +0100
+@@ -43,7 +43,7 @@
+  * Sets SMARTY_DIR only if user application has not already defined it.
+  */
+ if (!defined('SMARTY_DIR')) {
+-    define('SMARTY_DIR', dirname(__FILE__) . DS);
++    define('SMARTY_DIR', '/usr/share/php/Smarty3/');
+ } 
+ 
+ /**
