@@ -1,14 +1,16 @@
 %define		doc_version	3.0
 %define		php_min_version 5.2.0
+%define     main_version 3.0.5
+
 %include	/usr/lib/rpm/macros.php
 Summary:	Template engine for PHP
 Summary(pl.UTF-8):	System szablonów dla PHP
 Name:		Smarty3
-Version:	3.0.5
+Version:	%{main_version}
 Release:	0.1
 License:	LGPL v2.1+
 Group:		Development/Languages/PHP
-Source0:	http://www.smarty.net/files/%{name}-%{version}.tar.gz
+Source0:	http://www.smarty.net/files/Smarty-%{version}.tar.gz
 # Source0-md5:	f7483eaa36ec72337827060076296478
 # Source1Download: http://www.smarty.net/documentation
 Source1:	http://www.smarty.net/files/docs/manual-en-%{doc_version}.zip
@@ -26,7 +28,8 @@ Requires:	php-tokenizer
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		appdir	%{php_data_dir}/Smarty3
+%define     _noautoreq  'pear(smarty_internal_parsetree.php)'
+%define     appdir      %{php_data_dir}/Smarty3
 
 %description
 Smarty is a template engine for PHP. Smarty provides your basic
@@ -57,7 +60,7 @@ Documentation for Smarty template engine.
 Dokumentacja do systemu szablonów Smarty.
 
 %prep
-%setup -q -a1
+%setup -q -n Smarty-%{main_version} -a1
 %patch0 -p1
 cp -a libs/plugins/modifier.{,mb_}truncate.php
 #%patch1 -p1
