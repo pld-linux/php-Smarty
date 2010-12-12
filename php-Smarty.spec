@@ -5,7 +5,7 @@
 %include	/usr/lib/rpm/macros.php
 Summary:	Template engine for PHP
 Summary(pl.UTF-8):	System szablonów dla PHP
-Name:		Smarty3
+Name:		php-Smarty
 Version:	%{main_version}
 Release:	0.1
 License:	LGPL v2.1+
@@ -28,8 +28,8 @@ Requires:	php-tokenizer
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define     _noautoreq  'pear(smarty_internal_parsetree.php)'
-%define     appdir      %{php_data_dir}/Smarty3
+%define		_noautoreq	pear(smarty_internal_parsetree.php)
+%define		appdir		%{php_data_dir}/Smarty3
 
 %description
 Smarty is a template engine for PHP. Smarty provides your basic
