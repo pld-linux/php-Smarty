@@ -21,6 +21,7 @@ BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 BuildRequires:	unzip
 Requires:	php-common >= 4:%{php_min_version}
 Requires:	php-date
+Requires:	php-mbstring
 Requires:	php-pcre
 Requires:	php-tokenizer
 BuildArch:	noarch
