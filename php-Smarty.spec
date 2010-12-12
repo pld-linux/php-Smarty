@@ -15,7 +15,6 @@ Source0:	http://www.smarty.net/files/Smarty-%{version}.tar.gz
 # Source1Download: http://www.smarty.net/documentation
 Source1:	http://www.smarty.net/files/docs/manual-en-%{doc_version}.zip
 # Source1-md5:	8db376266f1313927cc8e112f2526e21
-Source2:	%{name}-function.html_input_image.php
 Patch0:		path.patch
 URL:		http://www.smarty.net/
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
@@ -70,7 +69,6 @@ cp -a libs/Smarty.class.php $RPM_BUILD_ROOT%{php_data_dir}
 cp -a libs/debug.tpl $RPM_BUILD_ROOT%{appdir}
 cp -a libs/plugins/*.php $RPM_BUILD_ROOT%{appdir}/plugins
 cp -a libs/sysplugins/*.php $RPM_BUILD_ROOT%{appdir}/sysplugins
-cp -a %{SOURCE2} $RPM_BUILD_ROOT%{appdir}/plugins/function.html_input_image.php
 
 # backards compatible with pear dir
 ln -s %{appdir} $RPM_BUILD_ROOT%{php_pear_dir}/%{name}
