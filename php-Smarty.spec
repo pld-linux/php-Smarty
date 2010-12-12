@@ -17,7 +17,6 @@ Source1:	http://www.smarty.net/files/docs/manual-en-%{doc_version}.zip
 # Source1-md5:	8db376266f1313927cc8e112f2526e21
 Source2:	%{name}-function.html_input_image.php
 Patch0:		path.patch
-Patch1:		modifier.mb_truncate.patch
 URL:		http://www.smarty.net/
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 BuildRequires:	unzip
@@ -62,8 +61,6 @@ Dokumentacja do systemu szablonów Smarty.
 %prep
 %setup -q -n Smarty-%{main_version} -a1
 %patch0 -p1
-cp -a libs/plugins/modifier.{,mb_}truncate.php
-#%patch1 -p1
 
 %install
 rm -rf $RPM_BUILD_ROOT
