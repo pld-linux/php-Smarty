@@ -1,8 +1,6 @@
 %define		doc_version	3.0
 %define		php_min_version 5.2.0
-%define     main_version 3.0.5
-
-%include	/usr/lib/rpm/macros.php
+%define     main_version 3.0.6
 Summary:	Template engine for PHP
 Summary(pl.UTF-8):	System szablonów dla PHP
 Name:		php-Smarty
@@ -11,13 +9,14 @@ Release:	0.1
 License:	LGPL v2.1+
 Group:		Development/Languages/PHP
 Source0:	http://www.smarty.net/files/Smarty-%{version}.tar.gz
-# Source0-md5:	f7483eaa36ec72337827060076296478
+# Source0-md5:	77d021f17dbb727989d2bb063d9979ed
 # Source1Download: http://www.smarty.net/documentation
 Source1:	http://www.smarty.net/files/docs/manual-en-%{doc_version}.zip
 # Source1-md5:	8db376266f1313927cc8e112f2526e21
 Patch0:		path.patch
 URL:		http://www.smarty.net/
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
+BuildRequires:	rpmbuild(macros) >= 1.553
 BuildRequires:	unzip
 Requires:	php-common >= 4:%{php_min_version}
 Requires:	php-date
@@ -61,6 +60,8 @@ Dokumentacja do systemu szablonów Smarty.
 %prep
 %setup -q -n Smarty-%{main_version} -a1
 %patch0 -p1
+
+%undos -f php
 
 %install
 rm -rf $RPM_BUILD_ROOT
