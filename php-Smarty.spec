@@ -65,33 +65,18 @@ Dokumentacja do systemu szablonów Smarty.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{appdir}/{plugins,sysplugins},%{php_pear_dir}}
+install -d $RPM_BUILD_ROOT{%{appdir}/{plugins,sysplugins}}
 
 cp -a libs/Smarty.class.php $RPM_BUILD_ROOT%{php_data_dir}
 cp -a libs/debug.tpl $RPM_BUILD_ROOT%{appdir}
 cp -a libs/plugins/*.php $RPM_BUILD_ROOT%{appdir}/plugins
 cp -a libs/sysplugins/*.php $RPM_BUILD_ROOT%{appdir}/sysplugins
 
-# backards compatible with pear dir
-ln -s %{appdir} $RPM_BUILD_ROOT%{php_pear_dir}/%{name}
-
 # backards compatible with entry point in subdir
 ln -s ../Smarty.class.php $RPM_BUILD_ROOT%{appdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
-
-# make compat symlink, the symlink is discarded using %ghost on package uninstall
-%triggerpostun -- Smarty < 2.6.10-4
-if [ -d %{php_pear_dir}/%{name}/plugins ]; then
-	mv %{php_pear_dir}/%{name}/plugins/* %{appdir}/plugins
-	rmdir %{php_pear_dir}/%{name}/plugins 2>/dev/null
-fi
-rmdir %{php_pear_dir}/%{name} 2>/dev/null || mv -v %{php_pear_dir}/%{name}{,.rpmsave}
-ln -s %{appdir} %{php_pear_dir}/%{name}
-
-%post
-[ -e %{php_pear_dir}/%{name} ] || ln -s %{appdir} %{php_pear_dir}/%{name}
 
 %files
 %defattr(644,root,root,755)
@@ -107,9 +92,6 @@ ln -s %{appdir} %{php_pear_dir}/%{name}
 %{appdir}/debug.tpl
 %{appdir}/plugins/*.php
 %{appdir}/sysplugins/*.php
-
-# for the sake of bc when installed to pear dir
-%ghost %{php_pear_dir}/%{name}
 
 %files doc
 %defattr(644,root,root,755)
