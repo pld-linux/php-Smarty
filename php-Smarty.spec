@@ -5,7 +5,7 @@ Summary:	Template engine for PHP
 Summary(pl.UTF-8):	System szablonów dla PHP
 Name:		php-Smarty
 Version:	%{main_version}
-Release:	1
+Release:	2
 License:	LGPL v2.1+
 Group:		Development/Languages/PHP
 Source0:	http://www.smarty.net/files/Smarty-%{version}.tar.gz
@@ -18,11 +18,11 @@ URL:		http://www.smarty.net/
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 BuildRequires:	rpmbuild(macros) >= 1.553
 BuildRequires:	unzip
+Requires:	php(mbstring)
+Requires:	php(pcre)
+Requires:	php(tokenizer)
 Requires:	php-common >= 4:%{php_min_version}
 Requires:	php-date
-Requires:	php-mbstring
-Requires:	php-pcre
-Requires:	php-tokenizer
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
