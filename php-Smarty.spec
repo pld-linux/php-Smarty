@@ -5,7 +5,7 @@ Summary:	Template engine for PHP
 Summary(pl.UTF-8):	System szablonów dla PHP
 Name:		php-Smarty
 Version:	%{main_version}
-Release:	3
+Release:	4
 License:	LGPL v2.1+
 Group:		Development/Languages/PHP
 Source0:	http://www.smarty.net/files/Smarty-%{version}.tar.gz
@@ -63,17 +63,13 @@ Dokumentacja do systemu szablonów Smarty.
 
 %undos -f php
 
+# cleanup backups after patching
+find '(' -name '*~' -o -name '*.orig' ')' -print0 | xargs -0 -r -l512 rm -f
+
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{appdir}/{plugins,sysplugins},%{php_data_dir}}
-
-cp -a libs/Smarty.class.php $RPM_BUILD_ROOT%{php_data_dir}
-cp -a libs/debug.tpl $RPM_BUILD_ROOT%{appdir}
-cp -a libs/plugins/*.php $RPM_BUILD_ROOT%{appdir}/plugins
-cp -a libs/sysplugins/*.php $RPM_BUILD_ROOT%{appdir}/sysplugins
-
-# backards compatible with entry point in subdir
-ln -s ../Smarty.class.php $RPM_BUILD_ROOT%{appdir}
+install -d $RPM_BUILD_ROOT%{appdir}
+cp -a libs/* $RPM_BUILD_ROOT%{appdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -81,14 +77,11 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README SMARTY_3.1_NOTES.txt
-# entry point in include_path
-%{php_data_dir}/Smarty.class.php
-
-# app itself
 %dir %{appdir}
 %dir %{appdir}/plugins
 %dir %{appdir}/sysplugins
 %{appdir}/Smarty.class.php
+%{appdir}/SmartyBC.class.php
 %{appdir}/debug.tpl
 %{appdir}/plugins/*.php
 %{appdir}/sysplugins/*.php
