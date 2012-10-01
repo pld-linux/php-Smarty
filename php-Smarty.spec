@@ -1,15 +1,15 @@
 %define		doc_version	3.1.8
 %define		php_min_version 5.2.0
-%define		main_version 3.1.11
+%define		main_version 3.1.12
 Summary:	Template engine for PHP
 Summary(pl.UTF-8):	System szablonów dla PHP
 Name:		php-Smarty
 Version:	%{main_version}
-Release:	4
+Release:	1
 License:	LGPL v2.1+
 Group:		Development/Languages/PHP
 Source0:	http://www.smarty.net/files/Smarty-%{version}.tar.gz
-# Source0-md5:	35c2bb7aef3a0f0a86b0d679ece8ea1c
+# Source0-md5:	e93c5eb9ab88b5541d6cf6c4684a593b
 # Source1Download: http://www.smarty.net/documentation
 Source1:	http://www.smarty.net/files/docs/manual-en-%{doc_version}.zip
 # Source1-md5:	ca37df6101a699597bff31067d9a34de
