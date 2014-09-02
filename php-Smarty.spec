@@ -25,7 +25,6 @@ Requires:	php(tokenizer)
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_noautoreq	pear(smarty_internal_parsetree.php)
 %define		appdir		%{php_data_dir}/Smarty3
 
 %description
