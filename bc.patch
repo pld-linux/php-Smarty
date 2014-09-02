@@ -1,0 +1,69 @@
+--- Smarty-3.1.19/libs/Smarty3.class.php~	2014-09-02 14:46:50.940253560 +0300
++++ Smarty-3.1.19/libs/Smarty3.class.php	2014-09-02 14:46:52.640228305 +0300
+@@ -101,7 +101,7 @@
+  *
+  * @package Smarty
+  */
+-class Smarty extends Smarty_Internal_TemplateBase
++class Smarty3 extends Smarty_Internal_TemplateBase
+ {
+     /**#@+
+      * constant definitions
+@@ -110,7 +110,7 @@
+     /**
+      * smarty version
+      */
+-    const SMARTY_VERSION = 'Smarty-3.1.19';
++    const SMARTY_VERSION = 'Smarty-3.1.19BC';
+ 
+     /**
+      * define variable scopes
+@@ -1589,11 +1589,11 @@
+ }
+ 
+ // Check if we're running on windows
+-Smarty::$_IS_WINDOWS = strtoupper(substr(PHP_OS, 0, 3)) === 'WIN';
++Smarty3::$_IS_WINDOWS = strtoupper(substr(PHP_OS, 0, 3)) === 'WIN';
+ 
+ // let PCRE (preg_*) treat strings as ISO-8859-1 if we're not dealing with UTF-8
+-if (Smarty::$_CHARSET !== 'UTF-8') {
+-    Smarty::$_UTF8_MODIFIER = '';
++if (Smarty3::$_CHARSET !== 'UTF-8') {
++    Smarty3::$_UTF8_MODIFIER = '';
+ }
+ 
+ /**
+--- Smarty-3.1.19/libs/Smarty.class.php~	2014-09-02 14:47:19.543161977 +0300
++++ Smarty-3.1.19/libs/Smarty.class.php	2014-09-02 14:47:21.126471790 +0300
+@@ -28,14 +28,14 @@
+ /**
+  * @ignore
+  */
+-require_once(dirname(__FILE__) . '/Smarty.class.php');
++require_once(dirname(__FILE__) . '/Smarty3.class.php');
+ 
+ /**
+  * Smarty Backward Compatability Wrapper Class
+  *
+  * @package Smarty
+  */
+-class SmartyBC extends Smarty
++class Smarty extends Smarty3
+ {
+     /**
+      * Smarty 2 BC
+--- /dev/null	2009-03-03 10:35:25.000000000 +0200
++++ Smarty-3.1.19/libs/SmartyBC.class.php	2014-09-04 13:21:01.978505628 +0300
+@@ -0,0 +1,12 @@
++<?php
++/**
++ * @ignore
++ */
++require_once(dirname(__FILE__) . '/Smarty.class.php');
++
++/**
++ * Class to use Smarty3 BC layer
++ *
++ * @package Smarty
++ */
++class SmartyBC extends Smarty {}
