@@ -13,7 +13,6 @@ Source0:	http://www.smarty.net/files/Smarty-%{version}.tar.gz
 # Source1Download: http://www.smarty.net/documentation
 Source1:	http://www.smarty.net/files/docs/manual-en.%{doc_version}.zip
 # Source1-md5:	f54b1dd458776e4b1ccfdbfbfda1f484
-Patch0:		path.patch
 URL:		http://www.smarty.net/
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 BuildRequires:	rpmbuild(macros) >= 1.553
@@ -59,7 +58,6 @@ Dokumentacja do systemu szablonów Smarty.
 
 %prep
 %setup -q -n Smarty-%{main_version} -a1
-%patch0 -p1
 
 %undos -f php
 
