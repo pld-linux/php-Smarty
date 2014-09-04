@@ -11,7 +11,7 @@ Summary(pl.UTF-8):	System szablonów dla PHP
 Name:		php-Smarty
 Version:	%{main_version}
 Release:	%{rel}%{?with_bc:BC}
-License:	LGPL v2.1+
+License:	LGPL v3
 Group:		Development/Languages/PHP
 Source0:	http://www.smarty.net/files/Smarty-%{version}.tar.gz
 # Source0-md5:	8db6f31fcf80aa0e0cbb064112fbb1bd
