@@ -2,7 +2,7 @@
 # Conditional build:
 %bcond_with	bc		# build BC wrapper as default Smarty class
 
-%define		main_version 3.1.21
+%define		main_version 3.1.27
 %define		doc_version	3.1.14
 %define		rel	1
 %define		php_min_version 5.2.0
@@ -13,8 +13,8 @@ Version:	%{main_version}
 Release:	%{rel}%{?with_bc:BC}
 License:	LGPL v3
 Group:		Development/Languages/PHP
-Source0:	http://www.smarty.net/files/Smarty-%{version}.tar.gz
-# Source0-md5:	38ac058346d2e7a0b3b949c9c5519dd5
+Source0:	https://github.com/smarty-php/smarty/archive/v%{version}/smarty-%{version}.tar.gz
+# Source0-md5:	ef1e51f87857608cac5d42f1dd2d845a
 # Source1Download: http://www.smarty.net/documentation
 Source1:	http://www.smarty.net/files/docs/manual-en.%{doc_version}.zip
 # Source1-md5:	f54b1dd458776e4b1ccfdbfbfda1f484
@@ -69,7 +69,7 @@ Documentation for Smarty template engine.
 Dokumentacja do systemu szablonów Smarty.
 
 %prep
-%setup -q -n Smarty-%{main_version} -a1
+%setup -q -n smarty-%{main_version} -a1
 %undos -f php
 
 %if %{with bc}
@@ -108,10 +108,11 @@ ln -s Smarty3 %{php_data_dir}/Smarty
 
 %files
 %defattr(644,root,root,755)
-%doc README SMARTY_3.1_NOTES.txt
+%doc README *.md *.txt
 %dir %{appdir}
 %dir %{appdir}/plugins
 %dir %{appdir}/sysplugins
+%{appdir}/Autoloader.php
 %{appdir}/Smarty.class.php
 %{appdir}/SmartyBC.class.php
 %{appdir}/debug.tpl
