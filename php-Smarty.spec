@@ -4,7 +4,7 @@
 
 %define		main_version 3.1.31
 %define		doc_version	3.1.14
-%define		rel	1
+%define		rel	2
 %define		php_min_version 5.2.0
 Summary:	Template engine for PHP
 Summary(pl.UTF-8):	System szablonów dla PHP
@@ -115,6 +115,7 @@ ln -s Smarty3 %{php_data_dir}/Smarty
 %{appdir}/Autoloader.php
 %{appdir}/Smarty.class.php
 %{appdir}/SmartyBC.class.php
+%{appdir}/bootstrap.php
 %{appdir}/debug.tpl
 %{appdir}/plugins/*.php
 %{appdir}/sysplugins/*.php
