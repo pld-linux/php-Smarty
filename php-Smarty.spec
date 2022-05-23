@@ -2,7 +2,7 @@
 # Conditional build:
 %bcond_with	bc		# build BC wrapper as default Smarty class
 
-%define		main_version 3.1.36
+%define		main_version 3.1.45
 %define		doc_version	3.1.14
 %define		rel	1
 %define		php_min_version 5.2.0
@@ -14,7 +14,7 @@ Release:	%{rel}%{?with_bc:BC}
 License:	LGPL v3
 Group:		Development/Languages/PHP
 Source0:	https://github.com/smarty-php/smarty/archive/v%{version}/smarty-%{version}.tar.gz
-# Source0-md5:	bebb713b0084665b0d59302f2d00c435
+# Source0-md5:	c1b5d7acb43485c43973f0fb1e0d64c6
 # Source1Download: http://www.smarty.net/documentation
 Source1:	http://www.smarty.net/files/docs/manual-en.%{doc_version}.zip
 # Source1-md5:	f54b1dd458776e4b1ccfdbfbfda1f484
