@@ -75,7 +75,7 @@ Dokumentacja do systemu szablonów Smarty.
 %if %{with bc}
 mv libs/Smarty.class.php libs/Smarty3.class.php
 mv libs/SmartyBC.class.php libs/Smarty.class.php
-%patch0 -p1
+%patch -P0 -p1
 %endif
 
 # cleanup backups after patching
